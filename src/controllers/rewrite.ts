@@ -16,7 +16,7 @@ export default class LoginController {
     const api = new ChatGPTAPI({
       apiKey: env.OPEN_AI_API_KEY,
       completionParams: { model: 'gpt-4' }, // or 'gpt-4-0314'
-      maxModelTokens: 8100, // not 32000 because it's not yet available for via API
+      maxModelTokens: 8100, // not 32000 because it's not yet available via API
       systemMessage: `You are GPT-4, a large language model trained by OpenAI. Rewrite this text as if you were ${persona}`,
     })
 
