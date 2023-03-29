@@ -1,4 +1,4 @@
-import { IsString } from 'amala'
+import { IsNumber, IsString } from 'amala'
 import { PersonaKeys } from '@/models/Persona'
 
 export default class RewriteBody {
@@ -6,4 +6,6 @@ export default class RewriteBody {
   persona!: PersonaKeys
   @IsString()
   text!: string
+  @IsNumber()
+  textLength!: number
 }
