@@ -1,17 +1,17 @@
 const Persona = {
-  default: 'default human',
+  default: 'Default human',
   elon: 'Elon Musk',
-  pmarca: 'Marc Andreessen',
-  capitalist: 'Venture capitalist',
   founder: 'Startup founder',
-  thiel: 'Peter Thiel',
-  child: 'Child',
-  trump: 'Trump',
   eminem: 'Eminem',
   cuban: 'Mark Cuban',
   stark: 'Iron Man',
+  jackson: 'Samuel L. Jackson',
+  andreessen: 'Marc Andreessen',
+  homes: 'Elizabeth Holmes',
+  west: 'Kanya West',
+  dickinson: 'Emily Dickinson',
+  beyonce: 'Beyoncé',
+  jobs: 'Steve Jobs',
 }
 
 export type PersonaKeys = keyof typeof Persona
-
-export default Persona
