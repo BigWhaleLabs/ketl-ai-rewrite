@@ -15,3 +15,5 @@ const Persona = {
 }
 
 export type PersonaKeys = keyof typeof Persona
+
+export default Persona
