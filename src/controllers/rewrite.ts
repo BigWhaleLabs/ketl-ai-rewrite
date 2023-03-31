@@ -1,5 +1,7 @@
-import { Body, Controller, Get, Post } from 'amala'
+import { Body, Controller, Ctx, Get, Post } from 'amala'
 // import { ChatGPTAPI } from 'chatgpt' // Use this import in DEV mode to have types
+import { Context } from 'koa'
+import { forbidden } from '@hapi/boom'
 import Persona from '@/models/Persona'
 import RewriteBody from '@/validators/RewriteBody.js'
 import dynamicImport from '@/helpers/dynamicImport'
@@ -13,7 +15,8 @@ export default class LoginController {
   }
   @Post('/rewrite')
   async rewrite(
-    @Body({ required: true }) { persona, text, textLength }: RewriteBody
+    @Body({ required: true }) { persona, text, textLength }: RewriteBody,
+    @Ctx() ctx: Context
   ) {
     try {
       const { ChatGPTAPI } = await dynamicImport('chatgpt')
@@ -28,7 +31,8 @@ export default class LoginController {
 
       return { text: res.text }
     } catch (e) {
-      return { text, e }
+      const message = e instanceof Error ? e : (e as string)
+      return ctx.throw(forbidden(message))
     }
   }
 }
