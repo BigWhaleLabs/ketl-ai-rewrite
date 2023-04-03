@@ -1,20 +1,16 @@
 import { Body, Controller, Get, Post } from 'amala'
-// import { ChatGPTAPI } from 'chatgpt' // Use this import in DEV mode to have types
 import Persona from '@/models/Persona'
 import RewriteBody from '@/validators/RewriteBody.js'
-import dynamicImport from '@/helpers/dynamicImport'
 import env from '@/helpers/env.js'
 
 @Controller('/')
 export default class LoginController {
   @Get('/')
   index() {
-    return 'Nothing to see here 👀'
+    return 'Nothing to see here, move along.'
   }
   @Post('/rewrite')
-  async rewrite(
-    @Body({ required: true }) { persona, text, textLength }: RewriteBody
-  ) {
+  async rewrite(@Body({ required: true }) { persona, text }: RewriteBody) {
     try {
       const { ChatGPTAPI } = await dynamicImport('chatgpt')
       const api = new ChatGPTAPI({
