@@ -2,11 +2,11 @@ import { Body, Controller, Ctx, Get, Post } from 'amala'
 import { ChatGPTAPI } from 'chatgpt'
 import { Context } from 'koa'
 import { internal } from '@hapi/boom'
-import RewriteBody from '@/validators/RewriteBody.js'
-import env from '@/helpers/env.js'
+import RewriteBody from '../validators/RewriteBody.js'
+import env from '../helpers/env.js'
 
 @Controller('/')
-export default class LoginController {
+export default class RewriteController {
   @Get('/')
   index() {
     return 'Nothing to see here, move along.'
@@ -28,6 +28,7 @@ export default class LoginController {
 
       return { text: res.text }
     } catch (error) {
+      console.error(error)
       return ctx.throw(
         internal(error instanceof Error ? error.message : `${error}`)
       )

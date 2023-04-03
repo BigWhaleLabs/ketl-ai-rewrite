@@ -1406,13 +1406,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-no-relative-import-paths@npm:^1.5.2":
-  version: 1.5.2
-  resolution: "eslint-plugin-no-relative-import-paths@npm:1.5.2"
-  checksum: 194e72f21a8ec3796b6281d33d4a0f68b637da080fdd6a2d9abe8a3d7cf9b616067d7d63a9770c673e2843d03724b91d5f4ed720faff1db9bde0b322eb31b17b
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-node@npm:^11.1.0":
   version: 11.1.0
   resolution: "eslint-plugin-node@npm:11.1.0"
@@ -2032,15 +2025,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"http-graceful-shutdown@npm:^3.1.13":
-  version: 3.1.13
-  resolution: "http-graceful-shutdown@npm:3.1.13"
-  dependencies:
-    debug: ^4.3.4
-  checksum: 2514c5927b95f99da76fbc86f2be18ebfbc3a96aaa7a0e89603f9a98851a55fec74141de081d1739b6b9dc7cbb1718ef742e79438714835de0c249b9c4e56d8f
-  languageName: node
-  linkType: hard
-
 "iconv-lite@npm:0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -2479,15 +2463,12 @@ __metadata:
     eslint: ^8.36.0
     eslint-config-prettier: ^8.8.0
     eslint-plugin-import: ^2.27.5
-    eslint-plugin-no-relative-import-paths: ^1.5.2
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^4.2.1
     eslint-plugin-sort-imports-es6-autofix: ^0.6.0
-    http-graceful-shutdown: ^3.1.13
     koa: ^2.14.1
     koa-bodyparser: ^4.4.0
     koa-router: ^12.0.0
-    module-alias: ^2.2.2
     prettier: ^2.8.7
     tsc-watch: ^6.0.0
     typescript: ^5.0.2
@@ -2813,13 +2794,6 @@ __metadata:
   bin:
     mkdirp: bin/cmd.js
   checksum: a96865108c6c3b1b8e1d5e9f11843de1e077e57737602de1b82030815f311be11f96f09cce59bd5b903d0b29834733e5313f9301e3ed6d6f6fba2eae0df4298f
-  languageName: node
-  linkType: hard
-
-"module-alias@npm:^2.2.2":
-  version: 2.2.2
-  resolution: "module-alias@npm:2.2.2"
-  checksum: 4b5543f834b484033e5bd184096ca8276b9195e32e88883ee6ea8d3a4789d97c470d26f5fa7271bd7a26588bf67e4d27dbdb594ee327aef1c9619d855dc78342
   languageName: node
   linkType: hard
 

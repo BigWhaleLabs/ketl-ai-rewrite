@@ -6,9 +6,10 @@
   "repository": "https://github.com/BigWhaleLabs/ketl-ai-rewrite",
   "author": "backmeupplz <backmeupplz@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "distribute": "yarn build && node dist/server.js",
-    "start": "tsc-watch --skipLibCheck --onSuccess 'node dist/server.js'",
+    "distribute": "yarn build && node --experimental-modules --es-module-specifier-resolution=node dist/server.js",
+    "start": "tsc-watch --skipLibCheck --onSuccess 'node --experimental-modules --es-module-specifier-resolution=node dist/server.js'",
     "build": "tsc --skipLibCheck",
     "pretty": "prettier --check src",
     "lint": "yarn pretty && eslint --max-warnings 0 --ext ts,tsx,json src"
@@ -35,12 +36,9 @@
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-no-relative-import-paths": "^1.5.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
-    "http-graceful-shutdown": "^3.1.13",
-    "module-alias": "^2.2.2",
     "prettier": "^2.8.7",
     "tsc-watch": "^6.0.0",
     "typescript": "^5.0.2"
