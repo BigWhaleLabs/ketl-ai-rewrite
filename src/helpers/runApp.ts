@@ -1,7 +1,7 @@
 import { Server } from 'http'
 import { bootstrapControllers } from 'amala'
 import Koa from 'koa'
-import Rewrite from '../controllers/Rewrite'
+import Rewrite from '../controllers/rewrite'
 import Router from 'koa-router'
 import bodyParser from 'koa-bodyparser'
 import cors from '@koa/cors'
