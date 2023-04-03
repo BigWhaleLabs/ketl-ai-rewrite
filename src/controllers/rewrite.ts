@@ -1,38 +1,37 @@
 import { Body, Controller, Ctx, Get, Post } from 'amala'
-// import { ChatGPTAPI } from 'chatgpt' // Use this import in DEV mode to have types
+import { ChatGPTAPI } from 'chatgpt'
 import { Context } from 'koa'
-import { forbidden } from '@hapi/boom'
-import Persona from '@/models/Persona'
-import RewriteBody from '@/validators/RewriteBody.js'
-import dynamicImport from '@/helpers/dynamicImport'
-import env from '@/helpers/env.js'
+import { internal } from '@hapi/boom'
+import RewriteBody from '../validators/RewriteBody.js'
+import env from '../helpers/env.js'
 
 @Controller('/')
-export default class LoginController {
+export default class RewriteController {
   @Get('/')
   index() {
-    return 'Nothing to see here 👀'
+    return 'Nothing to see here, move along.'
   }
   @Post('/rewrite')
   async rewrite(
-    @Body({ required: true }) { persona, text, textLength }: RewriteBody,
+    @Body({ required: true }) { persona, text }: RewriteBody,
     @Ctx() ctx: Context
   ) {
     try {
-      const { ChatGPTAPI } = await dynamicImport('chatgpt')
       const api = new ChatGPTAPI({
         apiKey: env.OPEN_AI_API_KEY,
-        completionParams: { model: 'gpt-4' }, // or 'gpt-4-0314'
-        maxModelTokens: 8100, // not 32000 because it's not yet available via API
-        systemMessage: `You are GPT-4, a large language model trained by OpenAI. Rewrite this text without extending it more than 20% but less than ${textLength} as if you were ${Persona[persona]} without hashtags with markdown`,
+        completionParams: { model: 'gpt-4' },
+        maxModelTokens: 8100,
+        systemMessage: `You are ${persona}. Rewrite this text without lengthening it or shortening more than 20% than ${text.length} characters. Do not use hashtags. Do not use markdown.`,
       })
 
       const res = await api.sendMessage(text)
 
       return { text: res.text }
-    } catch (e) {
-      const message = e instanceof Error ? e : (e as string)
-      return ctx.throw(forbidden(message))
+    } catch (error) {
+      console.error(error)
+      return ctx.throw(
+        internal(error instanceof Error ? error.message : `${error}`)
+      )
     }
   }
 }
