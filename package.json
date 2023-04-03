@@ -2,9 +2,10 @@
   "name": "ketl-ai-rewrite",
   "version": "1.0.0",
   "description": "Backend that rewrites ketl posts",
+  "main": "dist/server.js",
   "repository": "https://github.com/BigWhaleLabs/ketl-ai-rewrite",
+  "author": "backmeupplz <backmeupplz@gmail.com>",
   "license": "MIT",
-  "main": "./dist/server.js",
   "scripts": {
     "distribute": "yarn build && node dist/server.js",
     "start": "tsc-watch --skipLibCheck --onSuccess 'node dist/server.js'",
@@ -38,7 +39,6 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
-    "eslint-plugin-unicorn": "^46.0.0",
     "http-graceful-shutdown": "^3.1.13",
     "module-alias": "^2.2.2",
     "prettier": "^2.8.7",
@@ -48,8 +48,5 @@
   "_moduleAliases": {
     "@": "dist"
   },
-  "packageManager": "yarn@3.5.0",
-  "engines": {
-    "node": "18.13.0"
-  }
+  "packageManager": "yarn@3.5.0"
 }
