@@ -8,7 +8,7 @@ enum Persona {
   jackson = 'Samuel L. Jackson',
   andreessen = 'Marc Andreessen',
   homes = 'Elizabeth Holmes',
-  west = 'Kanya West',
+  west = 'Kanye West',
   dickinson = 'Emily Dickinson',
   beyonce = 'Beyoncé',
   jobs = 'Steve Jobs',
